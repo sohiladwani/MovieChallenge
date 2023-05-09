@@ -13,6 +13,9 @@ public class Customer {
      * @param id customer id
      */
     public Customer(String name, String id) {
+        if(name.equals("") || id.equals("")) {
+            throw new IllegalArgumentException("Customer is missing name or ID");
+        }
         this.id = id;
         this.name = name;
     }

@@ -55,7 +55,8 @@ public class Theater {
 
     }
 
-    //Had to Import Jackson and the JSR310 Module to handle the duration
+    //Had to Import Jackson for JSON and the JSR310 Module to handle the Duration class
+    //Running time was changed to seconds by this module
     public void printScheduleJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JSR310Module());
@@ -84,9 +85,17 @@ public class Theater {
         }
     }
 
+    //Created to allow for easy JSONprint unit testing
+    public void setSchedule(List<Showing> schedule){
+        this.schedule = schedule;
+    }
+
     public static void main(String[] args) {
         Theater theater = new Theater(LocalDateProvider.getInstance());
+        System.out.println("Human Readable Schedule");
         theater.printSchedule();
+        System.out.println("=============================================");
+        System.out.println("JSON schedule");
         theater.printScheduleJSON();
     }
 }

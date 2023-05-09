@@ -1,10 +1,8 @@
 package com.jpmc.theater;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
-import java.time.LocalDateTime;
 
 public class Movie {
     private static final int MOVIE_CODE_SPECIAL = 1;
@@ -15,6 +13,9 @@ public class Movie {
     private int specialCode;
 
     public Movie(String title, Duration runningTime, double ticketPrice, int specialCode) {
+        if (ticketPrice < 0) {
+            throw new IllegalArgumentException("Negative ticket price provided");
+        }
         this.title = title;
         this.runningTime = runningTime;
         this.ticketPrice = ticketPrice;
