@@ -33,7 +33,7 @@ public class TheaterTests {
     }
 
     // I chose to print the movieSchedule with the discounts built in to incentivize  customers by them seeing the true rate they will be paying
-    //Prints outt he movie schedule and compares it to what it should look like
+    //Prints out the movie schedule and compares it to what it should look like
     @Test
     void printMovieSchedule() {
         LocalDateProvider datetime = new MockLocalDateProvider();
@@ -62,7 +62,7 @@ public class TheaterTests {
         assertEquals(expectedOutput, actualOut);
     }
 
-    //Prints out the JSON version of the movie schedule. Some fields here are changes, for example we see run time expressed in the form of seconds
+    //Prints out the JSON version of the movie schedule. Some fields here are changed, for example we see run time expressed in the form of seconds
     @Test
     public void testPrintScheduleJSON() {
         // Create a test schedule
